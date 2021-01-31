@@ -8,7 +8,6 @@ package io.dapr.examples.invoke.grpc;
 import com.google.protobuf.Any;
 import io.dapr.v1.AppCallbackGrpc;
 import io.dapr.v1.CommonProtos;
-import io.dapr.v1.DaprAppCallbackProtos;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
@@ -122,7 +121,8 @@ public class HelloWorldService {
       String utcNowAsString = DATE_FORMAT.format(utcNow.getTime());
 
       // Handles the request by printing message.
-      System.out.println("Server: " + request.getMessage() + " @ " + utcNowAsString);
+      System.out.println("Server: " + request.getMessage());
+      System.out.println("@ " + utcNowAsString);
 
       // Now respond with current timestamp.
       SayResponse.Builder responseBuilder = SayResponse.newBuilder();
